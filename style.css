@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(images/realisaties/keukens/keuken\ app\ kontich/20230325_132249.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+
+#navbar {
+    background-color: white;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+#navbar img {
+    padding-left: 50px;
+    width: 17%;
+    align-self: flex-start;
+}
+
+.navButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navBtn {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.navBtn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.15s;
+}
+
+.navBtn a:hover,
+.navBtn .active {
+    background-color: #f0f0f0;
+}
+
+/* DROPDOWN */
+
+.dropdown {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.dropdownContent a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    transition: background-color 0.15s;
+}
+
+.dropdownContent a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+/* HAMBURGER BUTTON */
+
+#mobileMenuBtn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+#mobileMenuBtn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* MOBILE MENU (hidden on desktop) */
+
+#mobileMenu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+#mobileMenu a {
+    display: block;
+    padding: 14px 24px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1rem;
+}
+
+#mobileMenu a.active {
+    background-color: #f0f0f0;
+}
+
+#mobileMenu a:hover {
+    background-color: #f8f8f8;
+}
+
+#mobileMenu .mobileSection {
+    padding: 12px 24px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* MAIN CONTENT */
+
+.container {
+    padding: 32px 16px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.96);
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 8px;
+    padding: 32px 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.content h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.content p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #222;
+    width: 100%;
+}
+
+/* CONTACT */
+
+.contactgegevens {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 24px;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.contactgegevens span:nth-child(odd) {
+    font-weight: bold;
+    text-align: right;
+}
+
+.contactgegevens span:nth-child(even) {
+    text-align: left;
+}
+
+.contactgegevens a {
+    color: #444;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: white;
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    padding: 8px 16px;
+    opacity: 0.95;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.08);
+    font-size: 0.85rem;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.info a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.info a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    #navbar img {
+        padding-left: 16px;
+        width: auto;
+        max-height: 40px;
+        align-items: normal;
+    }
+
+    #navbar .navButtons {
+        display: none;
+    }
+
+    #mobileMenuBtn {
+        display: flex;
+    }
+
+    .container {
+        padding: 20px 12px 72px;
+    }
+
+    .content {
+        padding: 24px 20px;
+        border-radius: 6px;
+    }
+
+    .content h1 {
+        font-size: 1.5rem;
+    }
+
+    .contactgegevens {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+    }
+
+    .contactgegevens span:nth-child(odd) {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .contactgegevens span:nth-child(even) {
+        text-align: left;
+        padding-left: 4px;
+    }
+
+    footer {
+        font-size: 0.78rem;
+        padding: 6px 12px;
+    }
+
+    .info {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 20px 16px;
+    }
+
+    .info b {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
