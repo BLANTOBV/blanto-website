@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* NAVBAR */
+/* ── NAVBAR ──────────────────────────────────────────── */
 
 #navbar {
     background-color: white;
@@ -22,10 +22,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 100px;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Push all page content below the fixed navbar (100px gap + 60px navbar) */
+main {
+    padding-top: 160px;
 }
 
 #navbar img {
@@ -69,7 +74,7 @@ body {
     background-color: #f0f0f0;
 }
 
-/* DROPDOWN */
+/* ── DROPDOWN ────────────────────────────────────────── */
 
 .dropdown {
     position: relative;
@@ -106,7 +111,7 @@ body {
     display: block;
 }
 
-/* HAMBURGER BUTTON */
+/* ── HAMBURGER BUTTON ────────────────────────────────── */
 
 #mobileMenuBtn {
     display: none;
@@ -127,7 +132,7 @@ body {
     border-radius: 2px;
 }
 
-/* MOBILE MENU */
+/* ── MOBILE MENU ─────────────────────────────────────── */
 
 #mobileMenu {
     display: none;
@@ -169,7 +174,36 @@ body {
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* MAIN CONTENT */
+/* home-logo hidden on desktop, shown on mobile */
+.home-logo {
+    display: none;
+}
+
+/* ── HOME PAGE ───────────────────────────────────────── */
+
+.home-hero {
+    min-height: calc(100vh - 160px - 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px 80px;
+}
+
+.slogan {
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 28px 40px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* ── MAIN CONTENT ────────────────────────────────────── */
 
 .container {
     padding: 32px 16px 80px;
@@ -189,7 +223,6 @@ body {
     border-radius: 8px;
     padding: 32px 40px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    margin-top: 100px;
 }
 
 .content h1 {
@@ -205,21 +238,7 @@ body {
     width: 100%;
 }
 
-.slogan {
-    background-color: lightblue;
-    border: 3px solid black;
-    padding: 10px;
-    position: fixed;
-    right: 20vw;
-    bottom: 30vh;
-    font-size: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-   
-/* CONTACT */
+/* ── CONTACT ─────────────────────────────────────────── */
 
 .contactgegevens a {
     color: #444;
@@ -234,7 +253,51 @@ body {
     gap: 10px;
 }
 
-/* GALLERY */
+.contactFormulier {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.contactFormulier label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.contactFormulier input,
+.contactFormulier textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.contactFormulier textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.contactFormulier button {
+    margin-top: 16px;
+    padding: 10px 28px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.contactFormulier button:hover {
+    background-color: #555;
+}
+
+/* ── GALLERY ─────────────────────────────────────────── */
 
 .gallery-page {
     max-width: 1100px;
@@ -263,7 +326,6 @@ body {
 
 .gallery-group img {
     width: 100%;
-    max-width: 40svw;
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 4px;
@@ -276,7 +338,7 @@ body {
     opacity: 0.85;
 }
 
-/* LIGHTBOX */
+/* ── LIGHTBOX ────────────────────────────────────────── */
 
 #lightbox {
     display: none;
@@ -329,7 +391,7 @@ body {
 #lightbox-prev { left: 8px; }
 #lightbox-next { right: 8px; }
 
-/* FOOTER */
+/* ── FOOTER ──────────────────────────────────────────── */
 
 footer {
     background-color: white;
@@ -338,12 +400,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 0;
     padding: 8px 16px;
     opacity: 90%;
     box-shadow: 0 -2px 6px rgba(0,0,0,0.08);
     font-size: 0.85rem;
+    position: fixed;
+    bottom: 0;
 }
 
 .info {
@@ -364,18 +426,25 @@ footer {
     text-decoration: underline;
 }
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ──────────────────────────────────────── */
 
 @media (max-width: 768px) {
+
+    /* Switch to sticky flow layout on mobile */
+    main {
+        padding-top: 0;
+    }
+
     #navbar {
+        position: sticky;
         top: 0;
     }
 
+    /* Navbar: small logo + hamburger only */
     #navbar img {
         padding-left: 16px;
         width: auto;
         max-height: 40px;
-        align-items: normal;
     }
 
     #navbar .navButtons {
@@ -386,26 +455,48 @@ footer {
         display: flex;
     }
 
+    /* Home hero: big logo above slogan */
+    .home-hero {
+        min-height: calc(100vh - 60px - 60px);
+        padding: 24px 16px 24px;
+        gap: 24px;
+    }
+
+    .home-logo {
+        display: block;
+        width: min(280px, 70vw);
+    }
+
+    .slogan {
+        font-size: 1.3rem;
+        padding: 20px 24px;
+    }
+
+    /* Content pages: tight top padding, column layout */
     .container {
-        padding: 20px 12px 72px;
+        padding: 16px 12px 24px;
     }
 
     .content {
-        padding: 24px 20px;
+        padding: 20px 16px;
         border-radius: 6px;
+        margin-top: 0;
     }
 
     .content h1 {
         font-size: 1.5rem;
     }
 
+    /* Gallery: 2 columns on mobile */
     .gallery-group {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Footer: normal flow on mobile, not sticky */
     footer {
+        position: static;
         font-size: 0.78rem;
-        padding: 6px 12px;
+        padding: 10px 12px;
     }
 
     .info {
@@ -414,10 +505,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .content {
-        padding: 20px 16px;
-    }
-
     .info b {
         display: block;
         width: 100%;
